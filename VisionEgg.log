@@ -1,0 +1,60 @@
+2013-09-02 13:00:39,359 (40728) INFO: 12 frames were drawn.
+Mean IFI was 16.08 msec (62.19 fps), longest IFI was 16.81 msec.
+histogram:
+     9                                              *                     
+     8                                              *                     
+     7                                              *                     
+     6                                              *                     
+     5                                              *                     
+     4                                              *                     
+     3                                              *                     
+     2                                              *                     
+     1                                              *                     
+     0                          *                   *                     
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    0    1    0    0    0    10   0    0    0    0  
+
+2013-09-02 13:00:50,833 (40745) INFO: Script ./exp_full.py started Vision Egg 1.2.1 with process id 40745.
+2013-09-02 13:00:51,229 (40745) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2013-09-02 13:00:52,464 (40745) INFO: OpenGL 2.1 NVIDIA-1.6.36, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2013-09-02 13:00:52,464 (40745) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2013-09-02 13:01:41,302 (40745) WARNING: Calculated frames per second was 59.088, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2013-09-02 13:01:41,302 (40745) WARNING: One or more frames took 213.4 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2013-09-02 13:01:41,303 (40745) INFO: 2816 frames were drawn.
+Mean IFI was 16.92 msec (59.09 fps), longest IFI was 213.37 msec.
+histogram:
+  2510                                              *                     
+  2231                                              *                     
+  1952                                              *                     
+  1673                                              *                     
+  1395                                              *                     
+  1116                                              *                     
+   837                                              *                     
+   558                                              *                     
+   279                                              *                     
+     0      *         *              *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      1    0    1    0    0    3    2    8   +++   2    2    1    6  
+
+2013-09-02 13:01:54,061 (40778) INFO: Script ./exp_full.py started Vision Egg 1.2.1 with process id 40778.
+2013-09-02 13:01:54,455 (40778) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2013-09-02 13:01:55,672 (40778) INFO: OpenGL 2.1 NVIDIA-1.6.36, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2013-09-02 13:01:55,672 (40778) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2013-09-02 13:02:51,081 (40778) WARNING: Calculated frames per second was 59.205, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2013-09-02 13:02:51,081 (40778) WARNING: One or more frames took 207.9 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2013-09-02 13:02:51,081 (40778) INFO: 3217 frames were drawn.
+Mean IFI was 16.89 msec (59.20 fps), longest IFI was 207.87 msec.
+histogram:
+  2879                                              *                     
+  2559                                              *                     
+  2239                                              *                     
+  1919                                              *                     
+  1600                                              *                     
+  1280                                              *                     
+   960                                              *                     
+   640                                              *                     
+   320                                              *                     
+     0           *              *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    0    0    2    1    2    4   +++   2    1    1    3  
+

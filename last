@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ls -t *.csv | head -1 | xargs mvim
