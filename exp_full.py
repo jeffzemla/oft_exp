@@ -76,7 +76,7 @@ inst_on=1
 num_practice=10
 
 # timed blocks
-blocktypes=[10,10] # FIX BLOCK LENGTHS PILOT
+blocktypes=[15,15] # FIX BLOCK LENGTHS PILOT
 random.shuffle(blocktypes)
 block_total=len(blocktypes)
 block_curr=0
@@ -277,6 +277,8 @@ def setBlockLength():
         global blocktypes, block_length, blocklengthstring, blockscore
         tmp = blocktypes.pop()
         block_length = tmp * seconds_in_minute 
+        if tmp == 15:
+            blocklengthstring = "fifteen minutes"
         if tmp == 10:
             blocklengthstring = "ten minutes"
         if tmp == 5:
