@@ -50,8 +50,8 @@ listOfFix=[1,3,5] # different values
 randomFix=random.choice(listOfFix)
 
 # chronology
-main_length=600 # length of each sub-block (600==10 min) CHANGE TO 600 PILOT
-main_total = 1 # number of sub-blocks (2x10 = 20min) CHANGE TO 2 PILOT
+main_length=600 # length of each sub-block (600==10 min)
+main_total = 1 # number of sub-blocks (2x10 = 20min)
 static_isi=1
 penalty_isi=0
 seconds_in_minute=60 # used only for demoing. should be 60 during real experiment.
@@ -76,17 +76,19 @@ inst_on=1
 num_practice=10
 
 # timed blocks
-blocktypes=[15,15] # FIX BLOCK LENGTHS PILOT
+#blocktypes=[15,5,5,5,5,5,1,1,1,1,1,1,1,1] 
+blocktypes=[5,5]
 random.shuffle(blocktypes)
 block_total=len(blocktypes)
 block_curr=0
 blocklengthstring='xxx minutes'
 blockscore=0
+totalscore=0 # sum of all block scores
 block_length=10 # just an initialization...
 
-demo=0
+demo=1
 if demo:
-    seconds_in_minute=60 # for timed blocks, not main block
+    seconds_in_minute=6 # for timed blocks, not main block
     main_length=10
     num_practice=10
 
@@ -155,7 +157,7 @@ logfile.write("# Coherence,Direction,Response\n")
 
 def getState(t):
     global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, main_total, main_curr, block_total, block_curr, randomFix, practicenum
-    global trialnum, inst, inst_on, main_start, main_length, block_start, block_length, blockscore, blocklengthstring, penalty_isi, listOfFix
+    global trialnum, inst, inst_on, main_start, main_length, block_start, block_length, blockscore, blocklengthstring, penalty_isi, listOfFix, totalscore
 
     # for instructions only
     if (inst == "intro") and (keyPressed == 3): 
@@ -189,7 +191,8 @@ def getState(t):
         else:
             setBlockLength()            
             inst = "done_calibration"
-        logfile.write("# End calibration {0}: {1}\n".format(main_curr, t))            
+        logfile.write("# End calibration {0} ({1} points): {2}\n".format(main_curr, blockscore, t))
+        totalscore=totalscore+blockscore
         inst_on = 1
         fixOn = 0
     if (inst == "mid_calibration") and (keyPressed == 3):
@@ -204,6 +207,7 @@ def getState(t):
         keyPressed = 0
         logfile.write("# Start calibration {0}: {1}\n".format(main_curr+1, t))                    
     if (inst == "done_calibration") and (keyPressed == 3):
+        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60, t))            
         penalty_isi=0
         blockscore = 0
         inst = "timed_segment"
@@ -222,9 +226,9 @@ def getState(t):
         fixOn = 0
         dotsOn = 0
         inst_on = 1
-        logfile.write("# End timed segment {0} ({1} points): {2}\n".format(block_curr, blockscore, t))                            
+        logfile.write("# End timed segment {0} ({1} points): {2}\n".format(block_curr, blockscore, t))
+        totalscore=totalscore+blockscore
     if (inst == "mid_timed_segment") and (keyPressed == 3):
-        listOfFix=[1,4,9] # different values ONLY FOR PILOT
         penalty_isi=0        
         blockscore = 0
         inst = "timed_segment"
@@ -233,7 +237,7 @@ def getState(t):
         fixOn_start = t
         inst_on = 0
         block_start = t
-        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60, t))                            
+        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60, t))            
 
     # main exp
     if (t > fixOn_start+static_isi+penalty_isi) and (fixOn==1):
@@ -258,12 +262,11 @@ def getState(t):
             if (dirx==0) and (keyPressed==1): correct=0
             if (dirx==0) and (keyPressed==2): correct=1
             
-#            if correct == 0: blockscore = blockscore - randomFix
             if correct == 0: penalty_isi = randomFix
             if correct == 1: blockscore = blockscore + randomFix
-            print keyPressed
+            #print keyPressed
 
-            logfile.write("{0},{1},{2},{3},{4},{5}\n".format(trialnum,cohLevel,randomFix,dirx,keyPressed,rt,correct))
+            logfile.write("{0},{1},{2},{3},{4},{5},{6}\n".format(trialnum,cohLevel,randomFix,dirx,keyPressed,rt,correct))
 
             if inst != "calibration":
                 randomFix = random.choice(listOfFix) # set value for NEXT trial
@@ -316,9 +319,9 @@ def setInstructions(t):
 def changeInstructions(t):
     global inst, blocklengthstring, blockscore
     if inst == "intro":
-        stry = 'In this experiment, you will see a cluster of moving dots.\n\nOn average, the dots will be moving to the left or to the right.\n\nYour task is to decide whether the dots are moving to the left or right.\n\nEach trial may take anywhere from less than a second to several seconds to complete.\n\nPress the space bar to continue.'
+        stry = 'In this experiment, you will see a cluster of moving dots.\n\nOn average, the dots will be moving to the left or to the right.\n\nYour task is to decide whether the dots are moving to the left or right.\n\nEach trial will take roughly 0-2 seconds to complete.\n\nPress the space bar to continue.'
     elif inst == "intro2":
-        stry = 'Each trial is assigned a point value of 1, 2, or 3 points.\n\nThis value is displayed PRIOR to the beginning of the trial.\n\nIf you get the trial correct, you will gain this many points.\n\nIf you get the trial wrong, you will be penalized by having to wait an additional 1, 2, or 3 seconds before the next trial.\n\nYour goal is to get as many points as possible in the time allotted.\n\nPlease try some practice trials.\n\nPress the space bar to continue.' 
+        stry = 'Each trial is assigned a point value of 1, 3, or 5 points.\n\nThis value is displayed PRIOR to the beginning of the trial.\n\nIf you get the trial correct, you will gain this many points.\n\nIf you get the trial wrong, you will be penalized by having to wait an additional 1, 3, or 5 seconds before the next trial.\n\nYour goal is to get as many points as possible in the time allotted.\n\nPlease try some practice trials.\n\nPress the space bar to continue.' 
     elif inst == "practice":
         stry = 'PRACTICE TRIAL: \nPress \'j\' if the dots are moving to the left on average\nPress \'k\' if the dots are moving to the right on average'
     elif inst == "done_practice":
@@ -326,11 +329,11 @@ def changeInstructions(t):
     elif inst == "mid_calibration":
         stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nPlease take a short break before beginning the next section.\n\nThe next section will last 10 minutes, and is identical to the previous section.\n\nPlease try to answer as QUICKLY and ACCURATELY as possible. When you are ready to continue, please press the space bar.'
     elif inst == "done_calibration":
-        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nIn the next section, you will have:\nto attain as many points as possible.\n\nYou will gain points for correct answers and lose points for incorrect answers.\n\nTo attain as many points as possible, you will need to respond both QUICKLY and ACCURATELY.\n\nYou will receive feedback AFTER ' + blocklengthstring + ' has passed.\n\nIf you have any questions, please ask the experimenter before you begin.\n\nWhen you are ready to begin, press the space bar.'
+        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nIn the next section, you will have:\nto attain as many points as possible.\n\nTo attain as many points as possible, you will need to respond both QUICKLY and ACCURATELY.\n\nnIf you have any questions, please ask the experimenter before you begin.\n\nWhen you are ready to begin, press the space bar.'
     elif inst == "mid_timed_segment":
-        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nIn the next round you will have:\nto attain as many points as possible. Remember that you receive +1 point for every correct answer and -1 point for every incorrect answer.\n\nTo attain as many points as possible, you will need to respond both QUICKLY and ACCURATELY.\n\nWhen you are ready to begin the next round, press the space bar.'
+        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nIn the next round you will have:\nto attain as many points as possible.\n\nTo attain as many points as possible, you will need to respond both QUICKLY and ACCURATELY.\n\nWhen you are ready to begin the next round, press the space bar.'
     elif inst == "done_experiment":
-        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nYou have completed the experiment.\n\nThere is a short demographic survey you must complete before leaving.\n\nPlease contact the experimenter.'
+        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nYou have completed the experiment.\n\nYour total score for the experiment is: ' + str(totalscore) + '\n\nThere is a short demographic survey you must complete before leaving.\n\nPlease contact the experimenter.'
     else:
         stry = 'this text should not be visible. if you can read this, please contact the experimenter.'
         #print inst
