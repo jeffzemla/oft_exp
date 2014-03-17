@@ -57,7 +57,6 @@ sound_a=GenerateTone(freq='F')
 
 # chronology
 practice_length=600 # length of each sub-block (600==10 min)
-practice_total = 1 # number of sub-blocks (2x10 = 20min)
 static_isi=1
 seconds_in_minute=60 # used only for demoing. should be 60 during real experiment.
 
@@ -162,7 +161,7 @@ logfile.write("# Coherence,Direction,Response\n")
 #################################
 
 def getState(t):
-    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, practice_total, main_curr, block_total, block_curr, practicenum
+    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, main_curr, block_total, block_curr, practicenum
     global trialnum, inst, inst_on, main_start, practice_length, block_start, block_length, blockscore, blocklengthstring, totalscore
 
     # for instructions only
@@ -189,24 +188,12 @@ def getState(t):
         logfile.write("# Start calibration {0}: {1}\n".format(main_curr+1, t))                            
     if (inst == "calibration") and (t > main_start + practice_length) and (dotsOn == 0):    
         main_curr = main_curr + 1            
-        if main_curr < practice_total:
-            inst = "mid_calibration"
-        else:
-            setBlockLength()            
-            inst = "done_calibration"
+        setBlockLength()            
+        inst = "done_calibration"
         logfile.write("# End calibration {0} ({1} points): {2}\n".format(main_curr, blockscore, t))
         totalscore=totalscore+blockscore
         inst_on = 1
         fixOn = 0
-    if (inst == "mid_calibration") and (keyPressed == 3):
-        blockscore=0
-        inst = "calibration"
-        main_start = t
-        fixOn = 1
-        fixOn_start = t
-        inst_on = 0
-        keyPressed = 0
-        logfile.write("# Start calibration {0}: {1}\n".format(main_curr+1, t))                    
     if (inst == "done_calibration") and (keyPressed == 3):
         logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60, t))            
         blockscore = 0
@@ -257,11 +244,14 @@ def getState(t):
             if (dirx==0) and (keyPressed==2): correct=1
             
             if correct == 1: blockscore = blockscore + 1
-            if correct == 0 and blockround==fb_block: sound_a.play(5)
+            if (correct == 0) and (blockround==fb_block) and (inst=="timed_segment"): sound_a.play(5)
+
+            if (blockround==fb_block) and (inst=="timed_segment"): fbon=1
+            else: fbon=0
 
             #print keyPressed
 
-            logfile.write("{0},{1},{2},{3},{4},{5}\n".format(trialnum,cohLevel,dirx,keyPressed,rt,correct))
+            logfile.write("{0},{1},{2},{3},{4},{5},{6}\n".format(trialnum,cohLevel,dirx,keyPressed,rt,correct,fbon))
             
     keyPressed = 0
     return 1 
@@ -269,21 +259,18 @@ def getState(t):
 
 def setBlockLength():
         global blocktypes, block_length, blocklengthstring, blockscore, resetblocktype, blockround
+
+        if (blocktypes==[]) and (blockround==1):
+            blockround=2
+            blocktypes=resetblocktype
+            random.shuffle(blocktypes)
+        
         tmp = blocktypes.pop()
         block_length = tmp * seconds_in_minute 
-        if tmp == 15:
-            blocklengthstring = "fifteen minutes"
-        if tmp == 10:
-            blocklengthstring = "ten minutes"
         if tmp == 5:
             blocklengthstring = "five minutes"
         if tmp == 1:
             blocklengthstring = "one minute"
-        if blocktypes==[] and blockround==1:
-            blockround==2
-            blocktypes=resetblocktype
-            random.shuffle(blocktypes)
-            
 
 def setFixation(t):
     global fixOn
@@ -315,21 +302,47 @@ def setInstructions(t):
 def changeInstructions(t):
     global inst, blocklengthstring, blockscore
     if inst == "intro":
-        stry = 'In this experiment, you will see a cluster of moving dots.\n\nOn average, the dots will be moving to the left or to the right.\n\nYour task is to decide whether the dots are moving to the left or right.\n\nEach trial will take roughly 0-2 seconds to complete.\n\nPress the space bar to continue.'
+        stry = 'In this experiment, you will see a cluster of moving dots.\n\n' \
+               'On average, the dots will be moving to the left or to the right.\n\n' \
+               'Your task is to decide whether the dots are moving to the left or right.\n\n' \
+               'Each trial will take roughly 0-2 seconds to complete.\n\n' \
+               'Press the space bar to continue.'
     elif inst == "intro2":
-        stry = 'Your goal is to get as many trials correct as possible in the time allotted.\n\nPlease try some practice trials.\n\nPress the space bar to continue.' 
+        stry = 'Your goal is to get as many trials correct as possible in the time allotted.\n\n' \
+               'To do so, you will need to respond both QUICKLY and ACCURATELY.\n\n' \
+               'Please try some practice trials.\n\n' \
+               'Press the space bar to continue.' 
     elif inst == "practice":
-        stry = 'PRACTICE TRIAL: \nPress \'j\' if the dots are moving to the left on average\nPress \'k\' if the dots are moving to the right on average'
+        stry = 'PRACTICE TRIAL: \n' \
+               'Press \'j\' if the dots are moving to the left on average\n' \
+               'Press \'k\' if the dots are moving to the right on average'
     elif inst == "done_practice":
-        stry = 'End of practice trials. Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nIf you have any questions, please ask the experimenter NOW.\n\nThe next section of the experiment will take 10 minutes.\n\nPlease try to answer as QUICKLY and ACCURATELY as possible.\n\nWhen you are ready, press the space bar to begin.'
-    elif inst == "mid_calibration":
-        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nPlease take a short break before beginning the next section.\n\nThe next section will last 10 minutes, and is identical to the previous section.\n\nPlease try to answer as QUICKLY and ACCURATELY as possible. When you are ready to continue, please press the space bar.'
+        stry = 'End of practice trials. Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
+               'If you have any questions, please ask the experimenter NOW.\n\n' \
+               'The next section of the experiment will take 10 minutes.\n\n' \
+               'When you are ready, press the space bar to begin.'
     elif inst == "done_calibration":
-        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nIn the next section, you will have:\nto attain as many points as possible.\n\nTo attain as many points as possible, you will need to respond both QUICKLY and ACCURATELY.\n\nnIf you have any questions, please ask the experimenter before you begin.\n\nWhen you are ready to begin, press the space bar.'
+        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
+               'In the next section, you will have:\nto attain as many points as possible.\n\n'+str(blockround)+str(fb_block)
+        if blockround==fb_block:
+            stry=stry+'Each INCORRECT response will be followed by a tone.\n\n'
+        else:
+            stry=stry+'You will NOT recieve any feedback after an incorrect response\n\n'
+        stry=stry+ 'If you have any questions, please ask the experimenter before you begin.\n\n' \
+                   'When you are ready to begin, press the space bar.'
     elif inst == "mid_timed_segment":
-        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nIn the next round you will have:\nto attain as many points as possible.\n\nTo attain as many points as possible, you will need to respond both QUICKLY and ACCURATELY.\n\nWhen you are ready to begin the next round, press the space bar.'
+        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
+               'In the next round you will have:\nto attain as many points as possible.\n\n'+str(blockround)+str(fb_block)
+        if blockround==fb_block:
+            stry=stry+'Each INCORRECT response will be followed by a tone.\n\n'               
+        else:
+            stry=stry+'You will NOT recieve any feedback after an incorrect response\n\n'                
+        stry=stry+'When you are ready to begin the next round, press the space bar.'
     elif inst == "done_experiment":
-        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\nYou have completed the experiment.\n\nYour total score for the experiment is: ' + str(totalscore) + '\n\nThere is a short demographic survey you must complete before leaving.\n\nPlease contact the experimenter.'
+        stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
+               'You have completed the experiment.\n\nYour total score for the experiment is: ' + str(totalscore) + '\n\n' \
+               'There is a short demographic survey you must complete before leaving.\n\n' \
+               'Please contact the experimenter.'
     else:
         stry = 'this text should not be visible. if you can read this, please contact the experimenter.'
         #print inst

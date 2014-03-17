@@ -548,3 +548,639 @@ histogram:
  Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
 Total:      0    0    1    1    2    0    3    30  506   4    4    0    3  
 
+2014-03-17 12:11:50,997 (42701) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 42701.
+2014-03-17 12:11:51,590 (42701) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:11:52,206 (42701) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:11:52,206 (42701) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:12:09,663 (42701) WARNING: Calculated frames per second was 58.995, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 12:12:09,663 (42701) WARNING: One or more frames took 93.9 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 12:12:09,664 (42701) INFO: 960 frames were drawn.
+Mean IFI was 16.95 msec (59.00 fps), longest IFI was 93.86 msec.
+histogram:
+   798                                              *                     
+   710                                              *                     
+   621                                              *                     
+   532                                              *                     
+   444                                              *                     
+   355                                              *                     
+   266                                              *                     
+   177                                              *                     
+    89                                              *                     
+     0           *         *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    0    2    1    3    3    40  887   8    2    3    9  
+
+2014-03-17 12:13:30,006 (42741) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 42741.
+2014-03-17 12:13:30,640 (42741) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:13:31,347 (42741) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:13:31,347 (42741) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:13:35,379 (42741) WARNING: Calculated frames per second was 58.902, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 12:13:35,379 (42741) WARNING: One or more frames took 90.5 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 12:13:35,380 (42741) INFO: 172 frames were drawn.
+Mean IFI was 16.98 msec (58.90 fps), longest IFI was 90.54 msec.
+histogram:
+   132                                              *                     
+   118                                              *                     
+   103                                              *                     
+    88                                              *                     
+    74                                              *                     
+    59                                              *                     
+    44                                              *                     
+    29                                              *                     
+    15                                              *                     
+     0           *    *         *         *    *    *    *              * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    1    0    1    0    4    12  147   2    0    0    3  
+
+2014-03-17 12:13:37,172 (42748) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 42748.
+2014-03-17 12:13:37,926 (42748) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:13:38,572 (42748) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:13:38,572 (42748) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:13:49,426 (42748) WARNING: Calculated frames per second was 58.744, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 12:13:49,426 (42748) WARNING: One or more frames took 130.0 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 12:13:49,428 (42748) INFO: 598 frames were drawn.
+Mean IFI was 17.02 msec (58.74 fps), longest IFI was 130.04 msec.
+histogram:
+   507                                              *                     
+   450                                              *                     
+   394                                              *                     
+   338                                              *                     
+   282                                              *                     
+   225                                              *                     
+   169                                              *                     
+   113                                              *                     
+    56                                              *                     
+     0                *              *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    3    0    0    1    1    20  563   3    2    1    3  
+
+2014-03-17 12:14:47,783 (42779) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 42779.
+2014-03-17 12:14:48,420 (42779) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:14:49,082 (42779) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:14:49,083 (42779) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:15:34,245 (42779) WARNING: Calculated frames per second was 58.832, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 12:15:34,245 (42779) WARNING: One or more frames took 188.7 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 12:15:34,246 (42779) INFO: 2590 frames were drawn.
+Mean IFI was 17.00 msec (58.83 fps), longest IFI was 188.66 msec.
+histogram:
+  2185                                              *                     
+  1942                                              *                     
+  1700                                              *                     
+  1457                                              *                     
+  1214                                              *                     
+   971                                              *                     
+   728                                              *                     
+   486                                              *                     
+   243                                              *                     
+     0                     *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    1    2    4    9   107  +++   13   14   3    8  
+
+2014-03-17 12:20:30,779 (42952) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 42952.
+2014-03-17 12:20:31,455 (42952) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:20:32,215 (42952) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:20:32,215 (42952) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:20:35,021 (42952) WARNING: Calculated frames per second was 57.350, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 12:20:35,021 (42952) WARNING: One or more frames took 50.6 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 12:20:35,022 (42952) INFO: 98 frames were drawn.
+Mean IFI was 17.44 msec (57.35 fps), longest IFI was 50.56 msec.
+histogram:
+    71                                              *                     
+    63                                              *                     
+    55                                              *                     
+    47                                              *                     
+    40                                              *                     
+    32                                              *                     
+    24                                              *                     
+    16                                              *                     
+     8                                         *    *                     
+     0           *              *    *    *    *    *    *         *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    0    0    1    1    1    8    79   1    0    1    4  
+
+2014-03-17 12:20:44,734 (42963) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 42963.
+2014-03-17 12:20:45,520 (42963) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:20:46,264 (42963) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:20:46,264 (42963) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:20:48,013 (42963) INFO: 60 frames were drawn.
+Mean IFI was 16.63 msec (60.14 fps), longest IFI was 18.03 msec.
+histogram:
+    50                                              *                     
+    45                                              *                     
+    39                                              *                     
+    34                                              *                     
+    28                                              *                     
+    22                                              *                     
+    17                                              *                     
+    11                                              *                     
+     6                                              *                     
+     0                          *              *    *    *                
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    0    1    0    0    1    56   1    0    0    0  
+
+2014-03-17 12:21:30,910 (43030) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 43030.
+2014-03-17 12:21:31,640 (43030) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:21:32,451 (43030) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:21:32,452 (43030) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:21:34,623 (43030) WARNING: Calculated frames per second was 61.037, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 12:21:34,623 (43030) INFO: 58 frames were drawn.
+Mean IFI was 16.38 msec (61.04 fps), longest IFI was 18.27 msec.
+histogram:
+    44                                              *                     
+    39                                              *                     
+    34                                              *                     
+    29                                              *                     
+    25                                              *                     
+    20                                              *                     
+    15                                              *                     
+    10                                              *                     
+     5                                         *    *                     
+     0           *                   *         *    *    *                
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    0    0    0    1    0    5    49   1    0    0    0  
+
+2014-03-17 12:24:37,676 (43102) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 43102.
+2014-03-17 12:24:38,314 (43102) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 12:24:38,974 (43102) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 12:24:38,974 (43102) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 12:24:40,435 (43102) WARNING: Calculated frames per second was 60.825, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 12:24:40,435 (43102) INFO: 28 frames were drawn.
+Mean IFI was 16.44 msec (60.83 fps), longest IFI was 17.63 msec.
+histogram:
+    22                                              *                     
+    19                                              *                     
+    17                                              *                     
+    14                                              *                     
+    12                                              *                     
+    10                                              *                     
+     7                                              *                     
+     5                                              *                     
+     2                                              *                     
+     0                                    *    *    *                     
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    0    0    0    2    1    24   0    0    0    0  
+
+2014-03-17 13:23:26,204 (44968) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 44968.
+2014-03-17 13:23:29,843 (44968) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:23:31,290 (44968) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:23:31,290 (44968) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:23:34,363 (44968) INFO: 100 frames were drawn.
+Mean IFI was 16.71 msec (59.86 fps), longest IFI was 23.80 msec.
+histogram:
+    79                                              *                     
+    70                                              *                     
+    62                                              *                     
+    53                                              *                     
+    44                                              *                     
+    35                                              *                     
+    26                                              *                     
+    18                                              *                     
+     9                                              *                     
+     0                     *              *    *    *    *         *      
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    1    0    0    1    4    88   4    0    1    0  
+
+2014-03-17 13:23:43,693 (44989) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 44989.
+2014-03-17 13:23:44,417 (44989) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:23:45,040 (44989) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:23:45,041 (44989) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:23:52,059 (44989) WARNING: Calculated frames per second was 58.960, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:23:52,059 (44989) WARNING: One or more frames took 115.3 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:23:52,060 (44989) INFO: 340 frames were drawn.
+Mean IFI was 16.96 msec (58.96 fps), longest IFI was 115.32 msec.
+histogram:
+   269                                              *                     
+   239                                              *                     
+   209                                              *                     
+   179                                              *                     
+   150                                              *                     
+   120                                              *                     
+    90                                              *                     
+    60                                              *                     
+    30                                              *                     
+     0      *              *         *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      1    0    0    1    0    1    5    19  299   8    2    1    2  
+
+2014-03-17 13:23:53,395 (44997) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 44997.
+2014-03-17 13:23:54,131 (44997) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:23:54,742 (44997) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:23:54,742 (44997) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:24:44,576 (44997) WARNING: Calculated frames per second was 59.259, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:24:44,577 (44997) WARNING: One or more frames took 231.2 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:24:44,577 (44997) INFO: 2879 frames were drawn.
+Mean IFI was 16.88 msec (59.26 fps), longest IFI was 231.22 msec.
+histogram:
+  2444                                              *                     
+  2172                                              *                     
+  1901                                              *                     
+  1629                                              *                     
+  1358                                              *                     
+  1086                                              *                     
+   815                                              *                     
+   543                                              *                     
+   272                                              *                     
+     0                *    *         *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    1    2    0    2    8   124  +++   11   9    2    4  
+
+2014-03-17 13:26:21,207 (45071) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 45071.
+2014-03-17 13:26:21,776 (45071) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:26:22,381 (45071) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:26:22,381 (45071) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:28:01,510 (45071) WARNING: Calculated frames per second was 59.352, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:28:01,510 (45071) WARNING: One or more frames took 157.2 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:28:01,511 (45071) INFO: 5834 frames were drawn.
+Mean IFI was 16.85 msec (59.35 fps), longest IFI was 157.15 msec.
+histogram:
+  4968                                              *                     
+  4416                                              *                     
+  3864                                              *                     
+  3312                                              *                     
+  2760                                              *                     
+  2208                                              *                     
+  1656                                              *                     
+  1104                                              *                     
+   552                                              *                     
+     0      *         *    *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      1    0    1    1    3    4    8   237  +++   24   20   3    11 
+
+2014-03-17 13:31:24,743 (45321) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 45321.
+2014-03-17 13:31:25,306 (45321) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:31:25,882 (45321) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:31:25,883 (45321) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:32:13,918 (45321) WARNING: Calculated frames per second was 59.176, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:32:13,919 (45321) WARNING: One or more frames took 159.6 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:32:13,919 (45321) INFO: 2771 frames were drawn.
+Mean IFI was 16.90 msec (59.18 fps), longest IFI was 159.55 msec.
+histogram:
+  2350                                              *                     
+  2089                                              *                     
+  1828                                              *                     
+  1567                                              *                     
+  1306                                              *                     
+  1044                                              *                     
+   783                                              *                     
+   522                                              *                     
+   261                                              *                     
+     0           *    *    *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    3    2    1    2    7   121  +++   6    8    1    7  
+
+2014-03-17 13:41:39,939 (45681) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 45681.
+2014-03-17 13:41:40,503 (45681) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:41:41,072 (45681) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:41:41,072 (45681) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:41:45,390 (45681) CRITICAL: Traceback (most recent call last):
+  File "./exp.py", line 426, in <module>
+    p.go()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 391, in go
+    doing_transition=0)
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 275, in __call_controllers
+    result = controller.during_go_eval()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 1247, in during_go_eval
+    return self.during_go_func(**call_args)
+  File "./exp.py", line 249, in getState
+    if (block_round==fb_block) and (inst=="timed_segment"): fbon=1
+NameError: global name 'block_round' is not defined
+
+2014-03-17 13:41:52,113 (45692) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 45692.
+2014-03-17 13:41:52,707 (45692) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:41:53,304 (45692) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:41:53,304 (45692) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:41:58,782 (45692) WARNING: Calculated frames per second was 58.259, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:41:58,782 (45692) WARNING: One or more frames took 149.8 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:41:58,783 (45692) INFO: 250 frames were drawn.
+Mean IFI was 17.16 msec (58.26 fps), longest IFI was 149.82 msec.
+histogram:
+   199                                              *                     
+   177                                              *                     
+   155                                              *                     
+   133                                              *                     
+   111                                              *                     
+    88                                              *                     
+    66                                              *                     
+    44                                              *                     
+    22                                              *                     
+     0      *              *                   *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      1    0    0    2    0    0    0    16  221   5    2    1    1  
+
+2014-03-17 13:46:37,764 (45828) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 45828.
+2014-03-17 13:46:38,351 (45828) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:46:38,937 (45828) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:46:38,937 (45828) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:47:31,803 (45828) WARNING: Calculated frames per second was 59.147, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:47:31,804 (45828) WARNING: One or more frames took 159.0 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:47:31,804 (45828) INFO: 3067 frames were drawn.
+Mean IFI was 16.91 msec (59.15 fps), longest IFI was 159.03 msec.
+histogram:
+  2597                                              *                     
+  2308                                              *                     
+  2020                                              *                     
+  1731                                              *                     
+  1443                                              *                     
+  1154                                              *                     
+   866                                              *                     
+   577                                              *                     
+   289                                              *                     
+     0           *         *    *    *    *    *    *    *    *         * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    4    0    2    4    3    8   128  +++   12   10   0    10 
+
+2014-03-17 13:47:34,822 (45853) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 45853.
+2014-03-17 13:47:35,425 (45853) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:47:36,014 (45853) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:47:36,015 (45853) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:48:21,225 (45853) WARNING: Calculated frames per second was 58.983, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:48:21,225 (45853) WARNING: One or more frames took 156.4 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:48:21,226 (45853) INFO: 2601 frames were drawn.
+Mean IFI was 16.95 msec (58.98 fps), longest IFI was 156.38 msec.
+histogram:
+  2217                                              *                     
+  1970                                              *                     
+  1724                                              *                     
+  1478                                              *                     
+  1232                                              *                     
+   985                                              *                     
+   739                                              *                     
+   493                                              *                     
+   246                                              *                     
+     0      *         *    *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      1    0    2    2    1    2    5   101  +++   6    7    2    8  
+
+2014-03-17 13:52:12,197 (46026) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46026.
+2014-03-17 13:52:12,752 (46026) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:52:13,331 (46026) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:52:13,331 (46026) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:52:42,447 (46026) CRITICAL: Traceback (most recent call last):
+  File "./exp.py", line 426, in <module>
+    p.go()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 391, in go
+    doing_transition=0)
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 275, in __call_controllers
+    result = controller.during_go_eval()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 1247, in during_go_eval
+    return self.during_go_func(**call_args)
+  File "./exp.py", line 325, in changeInstructions
+    'In the next section, you will have:\nto attain as many points as possible.\n\n'+fb_block+blockround
+TypeError: cannot concatenate 'str' and 'float' objects
+
+2014-03-17 13:52:52,617 (46047) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46047.
+2014-03-17 13:52:53,220 (46047) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:52:53,813 (46047) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:52:53,814 (46047) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:53:13,495 (46061) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46061.
+2014-03-17 13:53:14,107 (46061) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:53:14,713 (46061) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:53:14,713 (46061) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:54:07,154 (46061) WARNING: Calculated frames per second was 59.205, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 13:54:07,155 (46061) WARNING: One or more frames took 182.6 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 13:54:07,156 (46061) INFO: 3052 frames were drawn.
+Mean IFI was 16.89 msec (59.21 fps), longest IFI was 182.60 msec.
+histogram:
+  2576                                              *                     
+  2290                                              *                     
+  2003                                              *                     
+  1717                                              *                     
+  1431                                              *                     
+  1145                                              *                     
+   859                                              *                     
+   572                                              *                     
+   286                                              *                     
+     0      *    *    *    *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      1    2    1    1    1    4    11  138  +++   10   11   2    7  
+
+2014-03-17 13:58:47,978 (46189) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46189.
+2014-03-17 13:58:48,537 (46189) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 13:58:49,108 (46189) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 13:58:49,108 (46189) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 13:59:34,652 (46189) CRITICAL: Traceback (most recent call last):
+  File "./exp.py", line 426, in <module>
+    p.go()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 391, in go
+    doing_transition=0)
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 275, in __call_controllers
+    result = controller.during_go_eval()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 1247, in during_go_eval
+    return self.during_go_func(**call_args)
+  File "./exp.py", line 209, in getState
+    setBlockLength()
+  File "./exp.py", line 267, in setBlockLength
+    tmp = blocktypes.pop()
+IndexError: pop from empty list
+
+2014-03-17 14:06:42,538 (46426) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46426.
+2014-03-17 14:06:43,172 (46426) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:06:43,805 (46426) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:06:43,805 (46426) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:07:22,309 (46426) CRITICAL: Traceback (most recent call last):
+  File "./exp.py", line 426, in <module>
+    p.go()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 391, in go
+    doing_transition=0)
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 275, in __call_controllers
+    result = controller.during_go_eval()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 1247, in during_go_eval
+    return self.during_go_func(**call_args)
+  File "./exp.py", line 209, in getState
+    setBlockLength()
+  File "./exp.py", line 267, in setBlockLength
+    tmp = blocktypes.pop()
+IndexError: pop from empty list
+
+2014-03-17 14:07:26,277 (46446) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46446.
+2014-03-17 14:07:26,886 (46446) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:07:27,500 (46446) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:07:27,501 (46446) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:08:10,224 (46446) CRITICAL: Traceback (most recent call last):
+  File "./exp.py", line 426, in <module>
+    p.go()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 391, in go
+    doing_transition=0)
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 275, in __call_controllers
+    result = controller.during_go_eval()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 1247, in during_go_eval
+    return self.during_go_func(**call_args)
+  File "./exp.py", line 209, in getState
+    setBlockLength()
+  File "./exp.py", line 267, in setBlockLength
+    tmp = blocktypes.pop()
+IndexError: pop from empty list
+
+2014-03-17 14:12:35,616 (46627) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46627.
+2014-03-17 14:12:36,181 (46627) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:12:36,744 (46627) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:12:36,744 (46627) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:13:27,172 (46627) WARNING: Calculated frames per second was 59.095, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 14:13:27,172 (46627) WARNING: One or more frames took 153.9 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 14:13:27,173 (46627) INFO: 2920 frames were drawn.
+Mean IFI was 16.92 msec (59.09 fps), longest IFI was 153.90 msec.
+histogram:
+  2471                                              *                     
+  2197                                              *                     
+  1922                                              *                     
+  1648                                              *                     
+  1373                                              *                     
+  1098                                              *                     
+   824                                              *                     
+   549                                              *                     
+   275                                              *                     
+     0           *    *    *         *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    2    3    0    4    6   131  +++   11   6    2    7  
+
+2014-03-17 14:13:30,291 (46652) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46652.
+2014-03-17 14:13:30,909 (46652) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:13:31,569 (46652) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:13:31,569 (46652) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:14:22,905 (46652) WARNING: Calculated frames per second was 59.079, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 14:14:22,905 (46652) WARNING: One or more frames took 158.1 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 14:14:22,906 (46652) INFO: 2952 frames were drawn.
+Mean IFI was 16.93 msec (59.08 fps), longest IFI was 158.11 msec.
+histogram:
+  2504                                              *                     
+  2226                                              *                     
+  1947                                              *                     
+  1669                                              *                     
+  1391                                              *                     
+  1113                                              *                     
+   835                                              *                     
+   556                                              *                     
+   278                                              *                     
+     0           *    *    *         *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    1    2    0    1    7   132  +++   11   5    2    7  
+
+2014-03-17 14:15:56,552 (46737) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46737.
+2014-03-17 14:15:57,109 (46737) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:15:57,674 (46737) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:15:57,675 (46737) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:16:33,422 (46737) CRITICAL: Traceback (most recent call last):
+  File "./exp.py", line 425, in <module>
+    p.go()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 391, in go
+    doing_transition=0)
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 275, in __call_controllers
+    result = controller.during_go_eval()
+  File "/Library/Python/2.6/site-packages/visionegg-1.2.1-py2.6-macosx-10.6-universal.egg/VisionEgg/FlowControl.py", line 1247, in during_go_eval
+    return self.during_go_func(**call_args)
+  File "./exp.py", line 208, in getState
+    setBlockLength()
+  File "./exp.py", line 262, in setBlockLength
+    tmp = blocktypes.pop()
+IndexError: pop from empty list
+
+2014-03-17 14:17:27,737 (46778) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46778.
+2014-03-17 14:17:28,295 (46778) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:17:28,881 (46778) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:17:28,881 (46778) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:18:41,979 (46778) WARNING: Calculated frames per second was 59.257, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 14:18:41,979 (46778) WARNING: One or more frames took 158.7 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 14:18:41,980 (46778) INFO: 4019 frames were drawn.
+Mean IFI was 16.88 msec (59.26 fps), longest IFI was 158.73 msec.
+histogram:
+  3422                                              *                     
+  3042                                              *                     
+  2661                                              *                     
+  2281                                              *                     
+  1901                                              *                     
+  1521                                              *                     
+  1141                                              *                     
+   760                                              *                     
+   380                                              *                     
+     0           *         *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    0    2    1    3    7   177  +++   7    8    4    6  
+
+2014-03-17 14:20:33,979 (46894) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46894.
+2014-03-17 14:20:34,564 (46894) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:20:35,132 (46894) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:20:35,133 (46894) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:21:26,046 (46894) WARNING: Calculated frames per second was 59.189, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 14:21:26,047 (46894) WARNING: One or more frames took 168.4 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 14:21:26,047 (46894) INFO: 2946 frames were drawn.
+Mean IFI was 16.90 msec (59.19 fps), longest IFI was 168.41 msec.
+histogram:
+  2501                                              *                     
+  2223                                              *                     
+  1945                                              *                     
+  1667                                              *                     
+  1390                                              *                     
+  1112                                              *                     
+   834                                              *                     
+   556                                              *                     
+   278                                              *                     
+     0           *    *    *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    1    1    1    3    8   129  +++   5    9    2    6  
+
+2014-03-17 14:21:48,260 (46967) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 46967.
+2014-03-17 14:21:48,861 (46967) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:21:49,443 (46967) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:21:49,444 (46967) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:22:40,965 (46967) WARNING: Calculated frames per second was 59.132, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 14:22:40,965 (46967) WARNING: One or more frames took 170.6 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 14:22:40,966 (46967) INFO: 2965 frames were drawn.
+Mean IFI was 16.91 msec (59.13 fps), longest IFI was 170.57 msec.
+histogram:
+  2515                                              *                     
+  2235                                              *                     
+  1956                                              *                     
+  1676                                              *                     
+  1397                                              *                     
+  1118                                              *                     
+   838                                              *                     
+   559                                              *                     
+   279                                              *                     
+     0      *    *    *         *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      2    1    1    0    3    2    3   130  +++   9    8    4    7  
+
+2014-03-17 14:23:42,660 (47015) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 47015.
+2014-03-17 14:23:43,234 (47015) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:23:43,831 (47015) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:23:43,831 (47015) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:24:26,804 (47015) WARNING: Calculated frames per second was 59.049, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 14:24:26,804 (47015) WARNING: One or more frames took 181.7 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 14:24:26,805 (47015) INFO: 2419 frames were drawn.
+Mean IFI was 16.93 msec (59.05 fps), longest IFI was 181.68 msec.
+histogram:
+  2042                                              *                     
+  1815                                              *                     
+  1588                                              *                     
+  1361                                              *                     
+  1135                                              *                     
+   908                                              *                     
+   681                                              *                     
+   454                                              *                     
+   227                                              *                     
+     0      *         *    *         *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      2    0    2    1    0    3    6   118  +++   4    5    2    6  
+
+2014-03-17 14:25:44,543 (47062) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 47062.
+2014-03-17 14:25:45,113 (47062) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-17 14:25:45,675 (47062) INFO: OpenGL 2.1 NVIDIA-8.16.74 310.40.00.10f02, NVIDIA GeForce 9600M GT OpenGL Engine, NVIDIA Corporation (PyOpenGL 3.0.1)
+2014-03-17 14:25:45,675 (47062) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-17 14:27:00,894 (47062) WARNING: Calculated frames per second was 59.258, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-17 14:27:00,894 (47062) WARNING: One or more frames took 170.3 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-17 14:27:00,895 (47062) INFO: 4388 frames were drawn.
+Mean IFI was 16.88 msec (59.26 fps), longest IFI was 170.31 msec.
+histogram:
+  3747                                              *                     
+  3330                                              *                     
+  2914                                              *                     
+  2498                                              *                     
+  2082                                              *                     
+  1665                                              *                     
+  1249                                              *                     
+   833                                              *                     
+   416                                              *                     
+     0      *         *    *    *    *    *    *    *    *    *    *    * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      2    0    1    2    1    3    8   176  +++   7    12   4    8  
+
