@@ -1,0 +1,3 @@
+( 'oboe-g4.wav',    'g4', 0.1, 'oboe'    )
+( 'organ-c4.wav',   'c4', 0.1, 'organ'   )
+( 'trumpet-a4.wav', 'a4', 0.1, 'trumpet' )

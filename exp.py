@@ -27,6 +27,14 @@ from VisionEgg.WrappedText import *
 import OpenGL.GL as gl
 import random, math
 
+from array import array
+from time import sleep
+ 
+import pygame
+from generate import GenerateTone
+
+pygame.mixer.init()
+
 #############################
 #  Constants & globals      # 
 #############################
@@ -44,12 +52,12 @@ dirx=0.0
 # user response
 keyPressed=0
 
-# potential fixation crosses
 normalFix=Texture('images/fixation.png')
+sound_a=GenerateTone(freq='F')
 
 # chronology
-main_length=600 # length of each sub-block (600==10 min)
-main_total = 1 # number of sub-blocks (2x10 = 20min)
+practice_length=600 # length of each sub-block (600==10 min)
+practice_total = 1 # number of sub-blocks (2x10 = 20min)
 static_isi=1
 seconds_in_minute=60 # used only for demoing. should be 60 during real experiment.
 
@@ -73,20 +81,21 @@ inst_on=1
 num_practice=10
 
 # timed blocks
-#blocktypes=[15,5,5,5,5,5,1,1,1,1,1,1,1,1] 
-blocktypes=[5,5]
+blocktypes=[1]
+resetblocktype=blocktypes[:]
+blockround=1
 random.shuffle(blocktypes)
-block_total=len(blocktypes)
+block_total=len(blocktypes)*2
 block_curr=0
 blocklengthstring='xxx minutes'
 blockscore=0
 totalscore=0 # sum of all block scores
 block_length=10 # just an initialization...
-
+fb_block=round(random.random())+1
 demo=1
 if demo:
     seconds_in_minute=6 # for timed blocks, not main block
-    main_length=10
+    practice_length=10
     num_practice=10
 
 #################################
@@ -153,8 +162,8 @@ logfile.write("# Coherence,Direction,Response\n")
 #################################
 
 def getState(t):
-    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, main_total, main_curr, block_total, block_curr, practicenum
-    global trialnum, inst, inst_on, main_start, main_length, block_start, block_length, blockscore, blocklengthstring, totalscore
+    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, practice_total, main_curr, block_total, block_curr, practicenum
+    global trialnum, inst, inst_on, main_start, practice_length, block_start, block_length, blockscore, blocklengthstring, totalscore
 
     # for instructions only
     if (inst == "intro") and (keyPressed == 3): 
@@ -178,9 +187,9 @@ def getState(t):
         inst_on = 0
         main_start = t
         logfile.write("# Start calibration {0}: {1}\n".format(main_curr+1, t))                            
-    if (inst == "calibration") and (t > main_start + main_length) and (dotsOn == 0):    
+    if (inst == "calibration") and (t > main_start + practice_length) and (dotsOn == 0):    
         main_curr = main_curr + 1            
-        if main_curr < main_total:
+        if main_curr < practice_total:
             inst = "mid_calibration"
         else:
             setBlockLength()            
@@ -248,6 +257,8 @@ def getState(t):
             if (dirx==0) and (keyPressed==2): correct=1
             
             if correct == 1: blockscore = blockscore + 1
+            if correct == 0 and blockround==fb_block: sound_a.play(5)
+
             #print keyPressed
 
             logfile.write("{0},{1},{2},{3},{4},{5}\n".format(trialnum,cohLevel,dirx,keyPressed,rt,correct))
@@ -257,7 +268,7 @@ def getState(t):
 
 
 def setBlockLength():
-        global blocktypes, block_length, blocklengthstring, blockscore
+        global blocktypes, block_length, blocklengthstring, blockscore, resetblocktype, blockround
         tmp = blocktypes.pop()
         block_length = tmp * seconds_in_minute 
         if tmp == 15:
@@ -268,6 +279,11 @@ def setBlockLength():
             blocklengthstring = "five minutes"
         if tmp == 1:
             blocklengthstring = "one minute"
+        if blocktypes==[] and blockround==1:
+            blockround==2
+            blocktypes=resetblocktype
+            random.shuffle(blocktypes)
+            
 
 def setFixation(t):
     global fixOn
@@ -301,7 +317,7 @@ def changeInstructions(t):
     if inst == "intro":
         stry = 'In this experiment, you will see a cluster of moving dots.\n\nOn average, the dots will be moving to the left or to the right.\n\nYour task is to decide whether the dots are moving to the left or right.\n\nEach trial will take roughly 0-2 seconds to complete.\n\nPress the space bar to continue.'
     elif inst == "intro2":
-        stry = 'Your goal is to get as many trials correct as possible in the time allotted.\n\nIf you get a trial wrong, you will hear a buzzing sound. You will not receive any feedback after a correct response.\n\nPlease try some practice trials.\n\nPress the space bar to continue.' 
+        stry = 'Your goal is to get as many trials correct as possible in the time allotted.\n\nPlease try some practice trials.\n\nPress the space bar to continue.' 
     elif inst == "practice":
         stry = 'PRACTICE TRIAL: \nPress \'j\' if the dots are moving to the left on average\nPress \'k\' if the dots are moving to the right on average'
     elif inst == "done_practice":
