@@ -79,9 +79,19 @@ inst="intro"
 inst_on=1
 num_practice=10
 
+def shuffled(x):
+    y=x[:]
+    random.shuffle(y)
+    return y
+
 # timed blocks
-blocktypes=[1]
-resetblocktype=blocktypes[:]
+base=[1,1,1,1,1,5]
+blocktypes=shuffled(base),shuffled(base)
+blocktypes=[item for sublist in blocktypes for item in sublist] # flatten
+
+resetblocktype=shuffled(base),shuffled(base)
+resetblocktype=[item for sublist in resetblocktype for item in sublist] # flatten
+
 blockround=1
 random.shuffle(blocktypes)
 block_total=len(blocktypes)*2
@@ -263,7 +273,6 @@ def setBlockLength():
         if (blocktypes==[]) and (blockround==1):
             blockround=2
             blocktypes=resetblocktype
-            random.shuffle(blocktypes)
         
         tmp = blocktypes.pop()
         block_length = tmp * seconds_in_minute 
