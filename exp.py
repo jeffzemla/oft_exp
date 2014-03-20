@@ -100,7 +100,7 @@ blockscore=0
 totalscore=0 # sum of all block scores
 block_length=10 # just an initialization...
 fb_block=round(random.random())+1
-demo=1
+demo=0
 if demo:
     seconds_in_minute=6 # for timed blocks, not practice block
     practice_length=10
