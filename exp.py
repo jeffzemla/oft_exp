@@ -41,7 +41,7 @@ pygame.mixer.init()
 
 # flags for functions
 fixOn=0
-dotsOn=0
+dotsOn=1
 changeCoh=0
 changeDir=0
 
@@ -93,7 +93,6 @@ resetblocktype=shuffled(base),shuffled(base)
 resetblocktype=[item for sublist in resetblocktype for item in sublist] # flatten
 
 blockround=1
-random.shuffle(blocktypes)
 block_total=len(blocktypes)*2
 block_curr=0
 blocklengthstring='xxx minutes'
@@ -103,7 +102,7 @@ block_length=10 # just an initialization...
 fb_block=round(random.random())+1
 demo=1
 if demo:
-    seconds_in_minute=6 # for timed blocks, not main block
+    seconds_in_minute=6 # for timed blocks, not practice block
     practice_length=10
     num_practice=10
 
@@ -176,6 +175,7 @@ def getState(t):
 
     # for instructions only
     if (inst == "intro") and (keyPressed == 3): 
+        dotsOn=0
         inst = "intro2"
         keyPressed=0
     if (inst == "intro2") and (keyPressed == 3):
@@ -205,7 +205,7 @@ def getState(t):
         inst_on = 1
         fixOn = 0
     if (inst == "done_calibration") and (keyPressed == 3):
-        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60, t))            
+        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60.0, t))            
         blockscore = 0
         inst = "timed_segment"
         fixOn = 1
@@ -231,7 +231,7 @@ def getState(t):
         fixOn_start = t
         inst_on = 0
         block_start = t
-        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60, t))            
+        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60.0, t))            
 
     # main exp
     if (t > fixOn_start+static_isi) and (fixOn==1):
@@ -242,7 +242,7 @@ def getState(t):
        changeDir=1
        dotsOn_start=t
 
-    if dotsOn:
+    if dotsOn and inst != "intro":
         if (keyPressed == 1) or (keyPressed == 2):
             rt=t-dotsOn_start
             dotsOn=0
@@ -311,14 +311,16 @@ def setInstructions(t):
 def changeInstructions(t):
     global inst, blocklengthstring, blockscore
     if inst == "intro":
-        stry = 'In this experiment, you will see a cluster of moving dots.\n\n' \
-               'On average, the dots will be moving to the left or to the right.\n\n' \
-               'Your task is to decide whether the dots are moving to the left or right.\n\n' \
-               'Each trial will take roughly 0-2 seconds to complete.\n\n' \
+        stry = 'In this experiment, you will see a cluster of moving dots (like below). ' \
+               'On average, the dots will be moving to the left or to the right.\n\n\n\n\n\n\n\n\n\n\n\n\n' \
+               'Your task is to decide whether the dots are moving to the left or right.\n' \
                'Press the space bar to continue.'
     elif inst == "intro2":
         stry = 'Your goal is to get as many trials correct as possible in the time allotted.\n\n' \
                'To do so, you will need to respond both QUICKLY and ACCURATELY.\n\n' \
+               'In some blocks, you will hear a tone after an incorrect response, ' \
+               'whereas in other blocks no feedback will be given. Please read the instructions carefully ' \
+               'before each block!\n\n' \
                'Please try some practice trials.\n\n' \
                'Press the space bar to continue.' 
     elif inst == "practice":
@@ -332,7 +334,7 @@ def changeInstructions(t):
                'When you are ready, press the space bar to begin.'
     elif inst == "done_calibration":
         stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
-               'In the next section, you will have:\nto attain as many points as possible.\n\n'+str(blockround)+str(fb_block)
+               'In the next section, you will have:\nto attain as many points as possible.\n\n'
         if blockround==fb_block:
             stry=stry+'Each INCORRECT response will be followed by a tone.\n\n'
         else:
@@ -341,7 +343,7 @@ def changeInstructions(t):
                    'When you are ready to begin, press the space bar.'
     elif inst == "mid_timed_segment":
         stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
-               'In the next round you will have:\nto attain as many points as possible.\n\n'+str(blockround)+str(fb_block)
+               'In the next round you will have:\nto attain as many points as possible.\n\n'
         if blockround==fb_block:
             stry=stry+'Each INCORRECT response will be followed by a tone.\n\n'               
         else:
