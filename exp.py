@@ -85,7 +85,7 @@ def shuffled(x):
     return y
 
 # timed blocks
-base=[1,1,1,1,1,5]
+base=[1,1,1,1,1]
 blocktypes=shuffled(base),shuffled(base)
 blocktypes=[item for sublist in blocktypes for item in sublist] # flatten
 
@@ -100,11 +100,11 @@ blockscore=0
 totalscore=0 # sum of all block scores
 block_length=10 # just an initialization...
 fb_block=round(random.random())+1
-demo=0
+demo=1
 if demo:
-    seconds_in_minute=6 # for timed blocks, not practice block
+    seconds_in_minute=60 # for timed blocks, not practice block
     practice_length=10
-    num_practice=10
+    num_practice=1
 
 #################################
 #  Initialize OpenGL objects    #
