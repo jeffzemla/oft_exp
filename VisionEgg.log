@@ -429,3 +429,175 @@ histogram:
  Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
 Total:      0    0    3    1    4    2    11  500  +++   21   3    2    9  
 
+2014-03-20 14:22:17,718 (276) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 276.
+2014-03-20 14:22:23,008 (276) INFO: Requesting window 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 14:22:25,419 (276) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 14:22:25,419 (276) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 14:22:32,418 (276) WARNING: Calculated frames per second was 70.425, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 14:22:32,418 (276) WARNING: One or more frames took 351.7 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-20 14:22:32,419 (276) INFO: 377 frames were drawn.
+Mean IFI was 14.20 msec (70.42 fps), longest IFI was 351.66 msec.
+histogram:
+   331                                    *                               
+   294                                    *                               
+   258                                    *                               
+   221                                    *                               
+   184                                    *                               
+   147                                    *                               
+   110                                    *                               
+    74                                    *                               
+    37                                    *                               
+     0                          *    *    *    *         *              * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    0    3    2   368   1    0    1    0    0    1  
+
+2014-03-20 14:22:47,064 (287) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 287.
+2014-03-20 14:22:47,773 (287) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 14:22:49,131 (287) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 14:22:49,131 (287) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 14:23:28,345 (287) WARNING: Calculated frames per second was 73.965, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 14:23:28,345 (287) WARNING: One or more frames took 347.3 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-20 14:23:28,346 (287) INFO: 2820 frames were drawn.
+Mean IFI was 13.52 msec (73.97 fps), longest IFI was 347.34 msec.
+histogram:
+  2532                                    *                               
+  2250                                    *                               
+  1969                                    *                               
+  1688                                    *                               
+  1407                                    *                               
+  1125                                    *                               
+   844                                    *                               
+   563                                    *                               
+   281                                    *                               
+     0                               *    *    *                        * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    0    0    3   +++   1    0    0    0    0    2  
+
+2014-03-20 14:23:47,364 (303) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 303.
+2014-03-20 14:23:48,023 (303) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 14:23:49,284 (303) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 14:23:49,284 (303) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 14:33:46,169 (303) WARNING: Calculated frames per second was 74.779, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 14:33:46,170 (303) WARNING: One or more frames took 506.2 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-20 14:33:46,171 (303) INFO: 44549 frames were drawn.
+Mean IFI was 13.37 msec (74.78 fps), longest IFI was 506.23 msec.
+histogram:
+ 40074                                    *                               
+ 35622                                    *                               
+ 31169                                    *                               
+ 26716                                    *                               
+ 22264                                    *                               
+ 17811                                    *                               
+ 13358                                    *                               
+  8905                                    *                               
+  4453                                    *                               
+     0           *    *    *    *    *    *    *                        * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    1    2    2    2    4   +++   1    0    0    0    0    9  
+
+2014-03-20 16:11:03,608 (537) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 537.
+2014-03-20 16:11:08,303 (537) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 16:11:10,365 (537) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 16:11:10,366 (537) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 16:25:48,412 (537) WARNING: Calculated frames per second was 75.083, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 16:25:48,413 (537) INFO: 837 frames were drawn.
+Mean IFI was 13.32 msec (75.08 fps), longest IFI was 13.45 msec.
+histogram:
+   752                                    *                               
+   668                                    *                               
+   585                                    *                               
+   501                                    *                               
+   418                                    *                               
+   334                                    *                               
+   251                                    *                               
+   167                                    *                               
+    84                                    *                               
+     0                     *              *                               
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    1    0    0   835   0    0    0    0    0    0  
+
+2014-03-20 16:26:32,062 (625) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 625.
+2014-03-20 16:26:34,728 (625) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 16:26:36,236 (625) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 16:26:36,236 (625) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 16:26:50,661 (625) WARNING: Calculated frames per second was 75.199, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 16:26:50,663 (625) INFO: 184 frames were drawn.
+Mean IFI was 13.30 msec (75.20 fps), longest IFI was 13.44 msec.
+histogram:
+   164                                    *                               
+   146                                    *                               
+   127                                    *                               
+   109                                    *                               
+    91                                    *                               
+    73                                    *                               
+    55                                    *                               
+    36                                    *                               
+    18                                    *                               
+     0                          *         *                               
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    0    1    0   182   0    0    0    0    0    0  
+
+2014-03-20 16:27:06,159 (631) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 631.
+2014-03-20 16:27:06,818 (631) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 16:27:08,048 (631) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 16:27:08,048 (631) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 16:27:19,447 (631) WARNING: Calculated frames per second was 75.400, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 16:27:19,448 (631) INFO: 94 frames were drawn.
+Mean IFI was 13.26 msec (75.40 fps), longest IFI was 13.41 msec.
+histogram:
+    83                                    *                               
+    74                                    *                               
+    64                                    *                               
+    55                                    *                               
+    46                                    *                               
+    37                                    *                               
+    28                                    *                               
+    18                                    *                               
+     9                                    *                               
+     0                     *              *                               
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    1    0    0    92   0    0    0    0    0    0  
+
+2014-03-20 16:29:13,375 (646) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 646.
+2014-03-20 16:29:14,038 (646) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 16:29:15,274 (646) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 16:29:15,275 (646) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 16:29:28,076 (646) WARNING: Calculated frames per second was 75.272, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 16:29:28,077 (646) INFO: 63 frames were drawn.
+Mean IFI was 13.29 msec (75.27 fps), longest IFI was 13.44 msec.
+histogram:
+    55                                    *                               
+    49                                    *                               
+    43                                    *                               
+    37                                    *                               
+    31                                    *                               
+    24                                    *                               
+    18                                    *                               
+    12                                    *                               
+     6                                    *                               
+     0                               *    *                               
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    0    0    1    61   0    0    0    0    0    0  
+
+2014-03-20 16:35:34,428 (654) INFO: Script ./exp.py started Vision Egg 1.2.1 with process id 654.
+2014-03-20 16:35:35,675 (654) INFO: Requesting fullscreen 1024 x 768 32 bpp (8 8 8 0 RGBA).
+2014-03-20 16:35:36,898 (654) INFO: OpenGL 1.4 APPLE-1.6.36, Intel GMA 950 OpenGL Engine, Intel Inc. (PyOpenGL 3.0.2)
+2014-03-20 16:35:36,899 (654) INFO: Video system reports 32 bpp (8 8 8 8 RGBA).
+2014-03-20 17:35:22,475 (654) WARNING: Calculated frames per second was 74.915, while the VISIONEGG_MONITOR_REFRESH_HZ variable is 60.0.
+2014-03-20 17:35:22,475 (654) WARNING: One or more frames took 350.1 msec, which is signficantly longer than the expected inter frame interval of 16.7 msec for your frame rate (60.0 Hz).
+2014-03-20 17:35:22,476 (654) INFO: 268275 frames were drawn.
+Mean IFI was 13.35 msec (74.92 fps), longest IFI was 350.11 msec.
+histogram:
+241397                                    *                               
+214575                                    *                               
+187753                                    *                               
+160931                                    *                               
+134110                                    *                               
+107288                                    *                               
+ 80466                                    *                               
+ 53644                                    *                               
+ 26822                                    *                               
+     0                     *    *    *    *         *                   * 
+ Time:    0    2    4    6    8   10   12   14   16   18   20   22   24 +(msec)
+Total:      0    0    0    3    17   7   +++   0    2    0    0    0    26 
+

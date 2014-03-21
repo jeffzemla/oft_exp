@@ -112,7 +112,7 @@ if demo:
 
 # Initialize OpenGL graphics screen.
 #screen = get_default_screen()
-screen = VisionEgg.Core.Screen(fullscreen=0,size=(1024,768))          # get_default_screen crashes my laptop
+screen = VisionEgg.Core.Screen(fullscreen=1,size=(1024,768))          # get_default_screen crashes my laptop
 
 screen.parameters.bgcolor = (0.0,0.0,0.0,0.0)
 
