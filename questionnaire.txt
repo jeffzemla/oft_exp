@@ -1,0 +1,31 @@
+BIS-11 (barratt impulsivity scale)
+2,9,17,1,18 {motor,attention,motor,self-control,cognitive complexity}
+
+I act "on impulse".
+I do things without thinking.
+I concentrate easily.
+I plan tasks carefully.
+I get easily bored when solving thought problems.
+
+Rarely/Never
+Occasionally
+Often
+Almost Always/Always
+
+
+Front Perfectionism scale (multidimensional perfectionism scale / mps)
+http://personality-testing.info/tests/FMPQ.php
+http://kar.kent.ac.uk/19826/1/Stoeber_FMPS_1998.pdf
+10,21,28,33,18 {cm,cm,d,d,cm}
+
+I should be upset if I make a mistake
+People will probably think less of me if I make a mistake
+I usually have doubts about the simple everyday things that I do
+It takes me a long time to do things "right"
+I hate being less than the best at things
+
+Strongly disagree
+Disagree
+Neutral
+Agree
+Strongly agree
