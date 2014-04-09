@@ -26,12 +26,20 @@ from VisionEgg.Text import *
 from VisionEgg.WrappedText import *
 import OpenGL.GL as gl
 import random, math
+import sys
 
 from array import array
 from time import sleep
  
 import pygame
 from generate import GenerateTone
+
+if len(sys.argv) < 2:
+    print "\nSUBJECT NUMBER REQUIRED!!!!!!!!!!!"
+    print "Use ./exp.py <subj #>\n"
+    sys.exit()
+else:
+    ss_num=sys.argv[1]
 
 pygame.mixer.init()
 
@@ -42,17 +50,19 @@ pygame.mixer.init()
 # flags for functions
 fixOn=0
 dotsOn=1
-changeCoh=0
+changeCoh=1
 changeDir=0
 
 # dot properties -- just initializations!!
 cohLevel=0.15
 dirx=0.0
-
 # user response
 keyPressed=0
 
 normalFix=Texture('images/fixation.png')
+hardFix=Texture('images/hardFix.png')
+easyFix=Texture('images/easyFix.png')
+
 sound_a=GenerateTone(freq='F')
 
 # chronology
@@ -71,8 +81,12 @@ main_curr = 0 # current of completed sub-blocks
 block_start=0
 
 # vectors to choose from
+easyCoh=0.25
+hardCoh=0.2
 direction = [0.0, 180.0]
-coherence = [0.20] # all the same coherence, change value only!!
+easy=[easyCoh]
+hard=[hardCoh]
+mixed=[hardCoh, easyCoh]
 
 # instruction/practice
 inst="intro"
@@ -85,25 +99,38 @@ def shuffled(x):
     return y
 
 # timed blocks
-base=[1,1,1,1,1,5]
-blocktypes=shuffled(base),shuffled(base)
-blocktypes=[item for sublist in blocktypes for item in sublist] # flatten
+block_length_const=5 # five minutes per block
 
-resetblocktype=shuffled(base),shuffled(base)
-resetblocktype=[item for sublist in resetblocktype for item in sublist] # flatten
+# pseudo-randomization for solid/mixed + precue/no-precue
 
-blockround=1
-block_total=len(blocktypes)*2
+b1=[1,2] # 1= mixed pre-cue, 2= mixed no pre-cue
+b2=[1,2] # 3= easy pre-cue, 4= hard pre-cue
+c1=[3,4] # 5= easy no pre-cue, 6= hard no pre-cue
+c2=[5,6]
+
+b1.append(c1.pop(c1.index(random.choice(c1))))
+b2.append(c1.pop(c1.index(random.choice(c1))))
+b1.append(c2.pop(c2.index(random.choice(c2))))
+b2.append(c2.pop(c2.index(random.choice(c2))))
+
+b=b1,b2
+b=[item for sublist in b for item in sublist] # flatten
+b.append(1) # mixed pre-cue for practice blocks
+
+blocktype=b.pop() # first block
+
+###
+
+block_total=8
 block_curr=0
 blocklengthstring='xxx minutes'
 blockscore=0
 totalscore=0 # sum of all block scores
 block_length=10 # just an initialization...
-fb_block=round(random.random())+1
-demo=0
+demo=1
 if demo:
-    seconds_in_minute=60 # for timed blocks, not practice block
-    practice_length=10
+    seconds_in_minute=5 # for timed blocks, not practice block
+    practice_length=10 # in seconds
     num_practice=1
 
 #################################
@@ -129,11 +156,6 @@ str_instruct_2 = WrappedText(text='placeholder',
         font_size=40,
         size=(800,500))
 
-str_instruct_3 = Text(text='0 minutes',
-        position=(400, screen.size[1]-100),
-        font_size=40,
-        color=(1.0,0.0,0.0))
-
 fixation = TextureStimulus(texture=normalFix,
         internal_format = gl.GL_RGBA,
         max_alpha = 1.0,
@@ -152,7 +174,7 @@ dotStim = DotArea2D( position                = ( screen_half_x, screen_half_y ),
                       num_dots                = 200)
 
 # Create a Viewport instance
-viewport = Viewport(screen=screen, stimuli=[str_instruct_1, fixation, dotStim, str_instruct_2, str_instruct_3])
+viewport = Viewport(screen=screen, stimuli=[str_instruct_1, fixation, dotStim, str_instruct_2])
 
 p = Presentation(
     go_duration = (exp_length,'seconds'),
@@ -160,7 +182,8 @@ p = Presentation(
     viewports = [viewport])
 
 #initialize log file
-logname=time.strftime('log_%m-%d-%Y_%Hh-%Mm.csv')
+logname=time.strftime('_%m-%d-%Y_%Hh-%Mm.csv')
+logname='log_'+ss_num+logname
 logfile = open(logname, 'w')
 logfile.write("# LOGFILE: {0}\n".format(logname))
 logfile.write("# Coherence,Direction,Response\n")
@@ -170,7 +193,7 @@ logfile.write("# Coherence,Direction,Response\n")
 #################################
 
 def getState(t):
-    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, main_curr, block_total, block_curr, practicenum
+    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, main_curr, block_total, block_curr, practicenum, blocktype
     global trialnum, inst, inst_on, main_start, practice_length, block_start, block_length, blockscore, blocklengthstring, totalscore
 
     # for instructions only
@@ -205,7 +228,8 @@ def getState(t):
         inst_on = 1
         fixOn = 0
     if (inst == "done_calibration") and (keyPressed == 3):
-        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60.0, t))            
+        blocktype=b.pop()
+        logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60.0, t))
         blockscore = 0
         inst = "timed_segment"
         fixOn = 1
@@ -215,7 +239,8 @@ def getState(t):
     if (inst == "timed_segment") and (t > block_start + block_length):
         block_curr = block_curr + 1
         if block_curr < block_total:
-            setBlockLength()             
+            setBlockLength()
+            blocktype=b.pop()
             inst = "mid_timed_segment"
         else:
             inst = "done_experiment"
@@ -254,36 +279,40 @@ def getState(t):
             if (dirx==0) and (keyPressed==2): correct=1
             
             if correct == 1: blockscore = blockscore + 1
-            if (correct == 0) and (blockround==fb_block) and (inst=="timed_segment"): sound_a.play(5)
-
-            if (blockround==fb_block) and (inst=="timed_segment"): fbon=1
-            else: fbon=0
+            if (correct == 0): sound_a.play(5)
 
             #print keyPressed
 
-            logfile.write("{0},{1},{2},{3},{4},{5},{6}\n".format(trialnum,cohLevel,dirx,keyPressed,rt,correct,fbon))
+            logfile.write("{0},{1},{2},{3},{4},{5},{6}\n".format(trialnum,cohLevel,dirx,keyPressed,rt,correct,blocktype))
             
     keyPressed = 0
     return 1 
 
 
 def setBlockLength():
-        global blocktypes, block_length, blocklengthstring, blockscore, resetblocktype, blockround
-
-        if (blocktypes==[]) and (blockround==1):
-            blockround=2
-            blocktypes=resetblocktype
+        global block_length, blocklengthstring
         
-        tmp = blocktypes.pop()
-        block_length = tmp * seconds_in_minute 
-        if tmp == 5:
-            blocklengthstring = "five minutes"
-        if tmp == 1:
-            blocklengthstring = "one minute"
+        block_length = block_length_const * seconds_in_minute 
+        blocklengthstring = "five minutes"
 
 def setFixation(t):
     global fixOn
     return fixOn
+
+
+def setFixationTexture(t):
+    if (blocktype==2) or (blocktype==6) or (blocktype==5):
+        fixtext=normalFix
+    if (blocktype==3):
+        fixtext=easyFix
+    if (blocktype==4):
+        fixtext=hardFix
+    if (blocktype==1):
+        if cohLevel==easyCoh:
+            fixtext=easyFix
+        if cohLevel==hardCoh:
+            fixtext=hardFix
+    return fixtext
 
 def setDots(t):
     global dotsOn
@@ -293,7 +322,25 @@ def setCoherence(t):
     global changeCoh, cohLevel
     if changeCoh:
         changeCoh=0
-        cohLevel = random.choice(coherence)
+        if (blocktype==1) or (blocktype==2):
+            cohLevel = random.choice(mixed)
+        if (blocktype==3) or (blocktype==5):
+            cohLevel = random.choice(easy)
+        if (blocktype==4) or (blocktype==6):
+            cohLevel = random.choice(hard)
+
+#    if (blocktype == 1) or (blocktype == 3) or (blocktype == 4):
+#        print "pre-cue ",
+#    else:
+#        print "no pre-cue",
+#    if (blocktype == 1) or (blocktype == 2):
+#        print "mixed",
+#    if (blocktype == 3) or (blocktype == 5):
+#        print "easy",
+#    if (blocktype == 4) or (blocktype == 6):
+#        print "hard",
+#    print cohLevel
+
     return cohLevel
 
 def setDirection(t):
@@ -301,7 +348,6 @@ def setDirection(t):
     if changeDir:
         changeDir=0
         dirx = random.choice(direction)
-        print dirx
     return dirx
 
 def setInstructions(t):
@@ -318,9 +364,6 @@ def changeInstructions(t):
     elif inst == "intro2":
         stry = 'Your goal is to get as many trials correct as possible in the time allotted.\n\n' \
                'To do so, you will need to respond both QUICKLY and ACCURATELY.\n\n' \
-               'In some blocks, you will hear a tone after an incorrect response, ' \
-               'whereas in other blocks no feedback will be given. Please read the instructions carefully ' \
-               'before each block!\n\n' \
                'Please try some practice trials.\n\n' \
                'Press the space bar to continue.' 
     elif inst == "practice":
@@ -334,21 +377,15 @@ def changeInstructions(t):
                'When you are ready, press the space bar to begin.'
     elif inst == "done_calibration":
         stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
-               'In the next section, you will have:\nto attain as many points as possible.\n\n'
-        if blockround==fb_block:
-            stry=stry+'Each INCORRECT response will be followed by a tone.\n\n'
-        else:
-            stry=stry+'You will NOT recieve any feedback after an incorrect response\n\n'
-        stry=stry+ 'If you have any questions, please ask the experimenter before you begin.\n\n' \
-                   'When you are ready to begin, press the space bar.'
+               'In the next section, you will have FIVE MINUTES to attain as many points as possible.\n\n' \
+               'Each INCORRECT response will be followed by a tone.\n\n' \
+               'If you have any questions, please ask the experimenter before you begin.\n\n' \
+               'When you are ready to begin, press the space bar.'
     elif inst == "mid_timed_segment":
         stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
-               'In the next round you will have:\nto attain as many points as possible.\n\n'
-        if blockround==fb_block:
-            stry=stry+'Each INCORRECT response will be followed by a tone.\n\n'               
-        else:
-            stry=stry+'You will NOT recieve any feedback after an incorrect response\n\n'                
-        stry=stry+'When you are ready to begin the next round, press the space bar.'
+               'In the next round you will have FIVE MINUTES to attain as many points as possible.\n\n' \
+               'Each INCORRECT response will be followed by a tone.\n\n' \
+               'When you are ready to begin the next round, press the space bar.'
     elif inst == "done_experiment":
         stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
                'You have completed the experiment.\n\nYour total score for the experiment is: ' + str(totalscore) + '\n\n' \
@@ -370,9 +407,6 @@ def setTimePos(t):
         return (630, screen.size[1]-240)
     else:
         return (590, screen.size[1]-239)
-
-def setTimeText(t):
-    return blocklengthstring.upper()
 
 def keydown(event):
         global keyPressed
@@ -401,8 +435,8 @@ direction_controller = FunctionController(during_go_func=setDirection)
 inst_controller = FunctionController(during_go_func=changeInstructions)
 inst_on_controller = FunctionController(during_go_func=setInstructions)
 inst3_on_controller = FunctionController(during_go_func=setTimeOn)
-inst3_text_controller = FunctionController(during_go_func=setTimeText)
 inst3_position_controller = FunctionController(during_go_func=setTimePos)
+fixation_texture_controller = FunctionController(during_go_func=setFixationTexture)
 
 state_controller = FunctionController(during_go_func=getState)
 
@@ -416,10 +450,6 @@ p.add_controller(str_instruct_1,'on', stimulus_off_controller)
 p.add_controller(str_instruct_2,'text', inst_controller)
 p.add_controller(str_instruct_2,'on', stimulus_on_controller)
 p.add_controller(str_instruct_2,'on', inst_on_controller)
-p.add_controller(str_instruct_3,'on', inst3_on_controller)
-p.add_controller(str_instruct_3,'text', inst3_text_controller)
-p.add_controller(str_instruct_3,'position', inst3_position_controller)
-p.add_controller(str_instruct_3,'on', stimulus_on_controller)
 p.add_controller(dotStim,'on', stimulus_on_controller)
 p.add_controller(fixation,'on', stimulus_on_controller)
 
@@ -428,6 +458,7 @@ p.add_controller(fixation,'max_alpha', fixation_controller)
 p.add_controller(dotStim,'on', dot_controller)
 p.add_controller(dotStim,'signal_fraction', coherence_controller)
 p.add_controller(dotStim,'signal_direction_deg', direction_controller)
+p.add_controller(fixation,'texture', fixation_texture_controller)
 
 p.add_controller(p, 'trigger_go_if_armed', state_controller)
 p.parameters.handle_event_callbacks = [(pygame.locals.KEYDOWN, keydown)]
