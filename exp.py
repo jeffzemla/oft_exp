@@ -118,7 +118,11 @@ b=b1,b2
 b=[item for sublist in b for item in sublist] # flatten
 b.append(1) # mixed pre-cue for practice blocks
 
+<<<<<<< HEAD
 #b=[4,3,4,3,1] # testing only
+=======
+#b=[4,3,4,3,1]
+>>>>>>> 37e3972f8e4c5d19719cf85d60ca40539f8fe353
 blocktype=b.pop() # first block
 
 ###
@@ -141,7 +145,7 @@ if demo:
 
 # Initialize OpenGL graphics screen.
 #screen = get_default_screen()
-screen = VisionEgg.Core.Screen(fullscreen=0,size=(1024,768))          # get_default_screen crashes my laptop
+screen = VisionEgg.Core.Screen(fullscreen=1,size=(1024,768))          # get_default_screen crashes my laptop
 
 screen.parameters.bgcolor = (0.0,0.0,0.0,0.0)
 
