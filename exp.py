@@ -118,7 +118,7 @@ b=b1,b2
 b=[item for sublist in b for item in sublist] # flatten
 b.append(1) # mixed pre-cue for practice blocks
 
-b=[4,3,4,3,1]
+#b=[4,3,4,3,1]
 blocktype=b.pop() # first block
 
 ###
@@ -129,7 +129,7 @@ blocklengthstring='xxx minutes'
 blockscore=0
 totalscore=0 # sum of all block scores
 block_length=10 # just an initialization...
-demo=1
+demo=0
 if demo:
     seconds_in_minute=5 # for timed blocks, not practice block
     practice_length=30 # in seconds
@@ -141,7 +141,7 @@ if demo:
 
 # Initialize OpenGL graphics screen.
 #screen = get_default_screen()
-screen = VisionEgg.Core.Screen(fullscreen=0,size=(1024,768))          # get_default_screen crashes my laptop
+screen = VisionEgg.Core.Screen(fullscreen=1,size=(1024,768))          # get_default_screen crashes my laptop
 
 screen.parameters.bgcolor = (0.0,0.0,0.0,0.0)
 
