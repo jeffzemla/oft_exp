@@ -118,7 +118,7 @@ b=b1,b2
 b=[item for sublist in b for item in sublist] # flatten
 b.append(1) # mixed pre-cue for practice blocks
 
-b=[4,3,4,3,1]
+#b=[4,3,4,3,1] # testing only
 blocktype=b.pop() # first block
 
 ###
@@ -129,10 +129,10 @@ blocklengthstring='xxx minutes'
 blockscore=0
 totalscore=0 # sum of all block scores
 block_length=10 # just an initialization...
-demo=1
+demo=0
 if demo:
     seconds_in_minute=5 # for timed blocks, not practice block
-    practice_length=30 # in seconds
+    practice_length=10 # in seconds
     num_practice=5
 
 #################################
@@ -244,6 +244,7 @@ def getState(t):
         fixOn = 0
     if (inst == "done_calibration") and (keyPressed == 3):
         blocktype=b.pop()
+        changeCoh=1                
         logfile.write("# Start timed segment {0} ({1} minutes): {2}\n".format(block_curr+1, block_length/60.0, t))
         blockscore = 0
         inst = "timed_segment"
@@ -256,6 +257,7 @@ def getState(t):
         if block_curr < block_total:
             setBlockLength()
             blocktype=b.pop()
+            changeCoh=1                    
             inst = "mid_timed_segment"
         else:
             inst = "done_experiment"
@@ -278,12 +280,12 @@ def getState(t):
        trialnum=trialnum+1
        fixOn=0
        dotsOn=1
-       changeCoh=1
        changeDir=1
        dotsOn_start=t
 
     if dotsOn and inst != "intro":
         if (keyPressed == 1) or (keyPressed == 2):
+            changeCoh=1        
             rt=t-dotsOn_start
             dotsOn=0
             fixOn=1
@@ -347,17 +349,17 @@ def setCoherence(t):
         if (blocktype==4) or (blocktype==6):
             cohLevel = random.choice(hard)
 
-#    if (blocktype == 1) or (blocktype == 3) or (blocktype == 4):
-#        print "pre-cue ",
-#    else:
-#        print "no pre-cue",
-#    if (blocktype == 1) or (blocktype == 2):
-#        print "mixed",
-#    if (blocktype == 3) or (blocktype == 5):
-#        print "easy",
-#    if (blocktype == 4) or (blocktype == 6):
-#        print "hard",
-#    print cohLevel
+    if (blocktype == 1) or (blocktype == 3) or (blocktype == 4):
+        print "pre-cue ",
+    else:
+        print "no pre-cue",
+    if (blocktype == 1) or (blocktype == 2):
+        print "mixed",
+    if (blocktype == 3) or (blocktype == 5):
+        print "easy",
+    if (blocktype == 4) or (blocktype == 6):
+        print "hard",
+    print cohLevel
 
     return cohLevel
 
