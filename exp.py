@@ -52,6 +52,7 @@ fixOn=0
 dotsOn=1
 changeCoh=1
 changeDir=0
+sampleFixOn=0
 
 # dot properties -- just initializations!!
 cohLevel=0.15
@@ -117,11 +118,12 @@ b=b1,b2
 b=[item for sublist in b for item in sublist] # flatten
 b.append(1) # mixed pre-cue for practice blocks
 
+b=[4,3,4,3,1]
 blocktype=b.pop() # first block
 
 ###
 
-block_total=8
+block_total=len(b)
 block_curr=0
 blocklengthstring='xxx minutes'
 blockscore=0
@@ -130,8 +132,8 @@ block_length=10 # just an initialization...
 demo=1
 if demo:
     seconds_in_minute=5 # for timed blocks, not practice block
-    practice_length=10 # in seconds
-    num_practice=1
+    practice_length=30 # in seconds
+    num_practice=5
 
 #################################
 #  Initialize OpenGL objects    #
@@ -163,6 +165,13 @@ fixation = TextureStimulus(texture=normalFix,
         position=(screen_half_x,screen_half_y),
         anchor='center')
 
+sampleFix = TextureStimulus(texture=Texture('images/allFix.png'),
+        internal_format = gl.GL_RGBA,
+        max_alpha=0.0,
+        size=(500,96),
+        position=(screen_half_x,screen_half_y-50),
+        anchor='center')
+
 dotStim = DotArea2D( position                = ( screen_half_x, screen_half_y ),
                       anchor                  = 'center',
                       size                    = ( 300.0 , 300.0 ),
@@ -174,7 +183,7 @@ dotStim = DotArea2D( position                = ( screen_half_x, screen_half_y ),
                       num_dots                = 200)
 
 # Create a Viewport instance
-viewport = Viewport(screen=screen, stimuli=[str_instruct_1, fixation, dotStim, str_instruct_2])
+viewport = Viewport(screen=screen, stimuli=[str_instruct_1, fixation, dotStim, str_instruct_2, sampleFix])
 
 p = Presentation(
     go_duration = (exp_length,'seconds'),
@@ -193,7 +202,7 @@ logfile.write("# Coherence,Direction,Response\n")
 #################################
 
 def getState(t):
-    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, main_curr, block_total, block_curr, practicenum, blocktype
+    global fixOn, dotsOn, changeCoh, changeDir, keyPressed, fixOn_start, dotsOn_start, rt, main_curr, block_total, block_curr, practicenum, blocktype, sampleFixOn
     global trialnum, inst, inst_on, main_start, practice_length, block_start, block_length, blockscore, blocklengthstring, totalscore
 
     # for instructions only
@@ -201,7 +210,13 @@ def getState(t):
         dotsOn=0
         inst = "intro2"
         keyPressed=0
-    if (inst == "intro2") and (keyPressed == 3):
+        sampleFixOn=1
+    if (inst == "intro2") and (keyPressed == 3): 
+        dotsOn=0
+        inst = "intro3"
+        keyPressed=0
+        sampleFixOn=0
+    if (inst == "intro3") and (keyPressed == 3):
         inst = "practice"
         fixOn = 1
         fixOn_start = t
@@ -299,6 +314,9 @@ def setFixation(t):
     global fixOn
     return fixOn
 
+def setSampleFix(t):
+    global sampleFixOn
+    return sampleFixOn
 
 def setFixationTexture(t):
     if (blocktype==2) or (blocktype==6) or (blocktype==5):
@@ -362,6 +380,11 @@ def changeInstructions(t):
                'Your task is to decide whether the dots are moving to the left or right.\n' \
                'Press the space bar to continue.'
     elif inst == "intro2":
+        stry = 'Trials preceded by a green fixation cross (left) are somewhat easier.\n\n' \
+               'Trials preceded by a red fixation cross (right) are somewhat harder.\n\n' \
+               'Trials preceded by a white fixation cross (center) may be either easy or hard.\n\n\n\n\n\n\n\n\n' \
+               'Press the space bar to continue.'
+    elif inst == "intro3":
         stry = 'Your goal is to get as many trials correct as possible in the time allotted.\n\n' \
                'To do so, you will need to respond both QUICKLY and ACCURATELY.\n\n' \
                'Please try some practice trials.\n\n' \
@@ -372,6 +395,7 @@ def changeInstructions(t):
                'Press \'k\' if the dots are moving to the right on average'
     elif inst == "done_practice":
         stry = 'End of practice trials. Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
+               'Each INCORRECT response will be followed by a tone.\n\n' \
                'If you have any questions, please ask the experimenter NOW.\n\n' \
                'The next section of the experiment will take 10 minutes.\n\n' \
                'When you are ready, press the space bar to begin.'
@@ -389,7 +413,6 @@ def changeInstructions(t):
     elif inst == "done_experiment":
         stry = 'Your score for the previous round: \n\n\t\t\t' + str(blockscore) + '\n\n' \
                'You have completed the experiment.\n\nYour total score for the experiment is: ' + str(totalscore) + '\n\n' \
-               'There is a short demographic survey you must complete before leaving.\n\n' \
                'Please contact the experimenter.'
     else:
         stry = 'this text should not be visible. if you can read this, please contact the experimenter.'
@@ -437,6 +460,7 @@ inst_on_controller = FunctionController(during_go_func=setInstructions)
 inst3_on_controller = FunctionController(during_go_func=setTimeOn)
 inst3_position_controller = FunctionController(during_go_func=setTimePos)
 fixation_texture_controller = FunctionController(during_go_func=setFixationTexture)
+samplefix_controller = FunctionController(during_go_func=setSampleFix)
 
 state_controller = FunctionController(during_go_func=getState)
 
@@ -459,6 +483,7 @@ p.add_controller(dotStim,'on', dot_controller)
 p.add_controller(dotStim,'signal_fraction', coherence_controller)
 p.add_controller(dotStim,'signal_direction_deg', direction_controller)
 p.add_controller(fixation,'texture', fixation_texture_controller)
+p.add_controller(sampleFix,'max_alpha',samplefix_controller)
 
 p.add_controller(p, 'trigger_go_if_armed', state_controller)
 p.parameters.handle_event_callbacks = [(pygame.locals.KEYDOWN, keydown)]
