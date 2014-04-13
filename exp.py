@@ -170,7 +170,7 @@ sampleFix = TextureStimulus(texture=Texture('images/allFix.png'),
         internal_format = gl.GL_RGBA,
         max_alpha=0.0,
         size=(500,96),
-        position=(screen_half_x,screen_half_y-50),
+        position=(screen_half_x,screen_half_y),
         anchor='center')
 
 dotStim = DotArea2D( position                = ( screen_half_x, screen_half_y ),
@@ -383,8 +383,8 @@ def changeInstructions(t):
                'Your task is to decide whether the dots are moving to the left or right.\n' \
                'Press the space bar to continue.'
     elif inst == "intro2":
-        stry = 'Trials preceded by a green fixation cross (left) are somewhat easier.\n\n' \
-               'Trials preceded by a red fixation cross (right) are somewhat harder.\n\n' \
+        stry = 'Trials preceded by a green fixation cross (left) are easier.\n\n' \
+               'Trials preceded by a red fixation cross (right) are harder.\n\n' \
                'Trials preceded by a white fixation cross (center) may be either easy or hard.\n\n\n\n\n\n\n\n\n' \
                'Press the space bar to continue.'
     elif inst == "intro3":
