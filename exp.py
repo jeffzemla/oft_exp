@@ -68,7 +68,7 @@ sound_a=GenerateTone(freq='F')
 
 # chronology
 practice_length=600 # length of each sub-block (600==10 min)
-static_isi=1
+static_isi=1.5
 seconds_in_minute=60 # used only for demoing. should be 60 during real experiment.
 
 trialnum=0
@@ -116,6 +116,7 @@ b2.append(c2.pop(c2.index(random.choice(c2))))
 
 b=b1,b2
 b=[item for sublist in b for item in sublist] # flatten
+b=shuffled(b)
 b.append(1) # mixed pre-cue for practice blocks
 
 #b=[4,3,4,3,1]
