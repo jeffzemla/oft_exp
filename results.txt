@@ -1,0 +1,173 @@
+blocktype == 1 or 2 (static or mixed)
+
+correct ~ precue * coh * session * blocktype + (1 | subj) + (1 |
+    precue:subj) + (1 | coh:subj) + (1 | session:subj) + (1 |
+    blocktype:subj)
+   Data: log[select == 1]
+
+accuracy
+
+(Intercept)                          8.637e-01  1.795e-02  4.800e+01  48.112   < 2e-16 ***   
+precue1                             -1.955e-02  8.594e-03  1.063e+03  -2.275   0.02312 *     
+coh0.25                              1.999e-02  8.279e-03  1.657e+03   2.415   0.01585 *     
+session2                             4.542e-04  1.527e-02  8.800e+01   0.030   0.97634       
+session3                             3.622e-03  1.522e-02  8.700e+01   0.238   0.81248       
+blocktype3                          -2.008e-02  8.650e-03  8.310e+02  -2.322   0.02048 *     
+precue1:coh0.25                      2.339e-02  1.146e-02  7.878e+04   2.042   0.04117 *     
+precue1:session2                     8.057e-03  1.140e-02  7.878e+04   0.707   0.47983       
+precue1:session3                     2.248e-02  1.133e-02  7.870e+04   1.983   0.04733 *     
+coh0.25:session2                     7.922e-03  1.125e-02  7.877e+04   0.704   0.48130       
+coh0.25:session3                    -1.079e-02  1.114e-02  7.875e+04  -0.969   0.33257       
+precue1:blocktype3                   2.697e-02  1.161e-02  7.878e+04   2.323   0.02017 *     
+coh0.25:blocktype3                   1.788e-02  1.155e-02  7.879e+04   1.548   0.12168       
+session2:blocktype3                  3.524e-03  1.135e-02  7.879e+04   0.310   0.75626       
+session3:blocktype3                  3.084e-02  1.121e-02  7.879e+04   2.750   0.00596 **    
+precue1:coh0.25:session2            -2.332e-02  1.594e-02  7.877e+04  -1.463   0.14343       
+precue1:coh0.25:session3            -5.637e-03  1.581e-02  7.878e+04  -0.357   0.72146       
+precue1:coh0.25:blocktype3          -3.760e-02  1.629e-02  7.879e+04  -2.308   0.02098 *     
+precue1:session2:blocktype3         -1.233e-02  1.606e-02  7.877e+04  -0.768   0.44261       
+precue1:session3:blocktype3         -3.558e-02  1.592e-02  7.879e+04  -2.235   0.02543 *     
+coh0.25:session2:blocktype3         -1.165e-02  1.601e-02  7.878e+04  -0.728   0.46679       
+coh0.25:session3:blocktype3          1.455e-04  1.581e-02  7.878e+04   0.009   0.99266       
+precue1:coh0.25:session2:blocktype3  2.876e-02  2.261e-02  7.878e+04   1.272   0.20345       
+precue1:coh0.25:session3:blocktype3  1.344e-02  2.236e-02  7.878e+04   0.601   0.54772       
+
+
+rt ~ precue * coh * session * blocktype + (1 | subj) + (1 | precue:subj) +
+    (1 | coh:subj) + (1 | session:subj) + (1 | blocktype:subj)
+   Data: log[select == 1]
+
+rt
+
+(Intercept)                          1.108e+00  5.929e-02  6.800e+01  18.694   < 2e-16 ***         
+precue1                              4.837e-03  2.030e-02  2.460e+02   0.238   0.811836            
+coh0.25                             -1.927e-01  2.377e-02  9.200e+01  -8.109   2.18e-12 ***        
+session2                            -2.271e-01  6.544e-02  5.600e+01  -3.471   0.001001 **         
+session3                            -3.468e-01  6.539e-02  5.600e+01  -5.304   1.97e-06 ***        
+blocktype3                           6.873e-02  2.217e-02  1.330e+02   3.101   0.002355 **         
+precue1:coh0.25                      4.883e-02  2.436e-02  7.876e+04   2.005   0.044958 *          
+precue1:session2                    -9.512e-03  2.424e-02  7.876e+04  -0.392   0.694789            
+precue1:session3                     4.937e-02  2.410e-02  7.877e+04   2.048   0.040549 *          N  log means not sig
+coh0.25:session2                     1.097e-01  2.392e-02  7.875e+04   4.586   4.51e-06 ***        
+coh0.25:session3                     1.389e-01  2.368e-02  7.875e+04   5.866   4.48e-09 ***        
+precue1:blocktype3                  -6.950e-02  2.468e-02  7.875e+04  -2.816   0.004859 **         
+coh0.25:blocktype3                   8.712e-02  2.456e-02  7.876e+04   3.547   0.000389 ***        
+session2:blocktype3                 -6.856e-02  2.414e-02  7.876e+04  -2.840   0.004514 **         
+session3:blocktype3                 -8.799e-02  2.385e-02  7.876e+04  -3.690   0.000224 ***        
+precue1:coh0.25:session2            -1.463e-02  3.388e-02  7.875e+04  -0.432   0.665880            
+precue1:coh0.25:session3            -9.062e-02  3.361e-02  7.876e+04  -2.696   0.007020 **          log means near sig     
+precue1:coh0.25:blocktype3          -3.574e-02  3.463e-02  7.876e+04  -1.032   0.30200             
+precue1:session2:blocktype3          7.544e-02  3.414e-02  7.875e+04   2.210   0.027137 *      B  
+precue1:session3:blocktype3          1.498e-02  3.385e-02  7.876e+04   0.443   0.658121            
+coh0.25:session2:blocktype3         -5.151e-02  3.404e-02  7.875e+04  -1.513   0.130283            
+coh0.25:session3:blocktype3         -9.532e-02  3.361e-02  7.875e+04  -2.836   0.004565 **         
+precue1:coh0.25:session2:blocktype3  2.484e-03  4.807e-02  7.875e+04   0.052   0.958793            
+precue1:coh0.25:session3:blocktype3  1.032e-01  4.754e-02  7.876e+04   2.171   0.029953 *      B      log means not sig
+
+
+B== only ones that arent significant if we include 3 subs with partial data
+N== not yet reported
+
+
+
+---- diff params (ml-all)
+
+a
+
+          Df Sum Sq Mean Sq F value Pr(>F)
+precue     1 0.003336 0.003336   3.673 0.0668 .
+session    2 0.3469 0.17343   14.75 9.2e-06 ***
+blocktype  1 0.00024 0.0002389    0.11  0.743
+difficulty  1 0.00113 0.001132   0.738  0.398
+precue:session  2 0.00421 0.002106   1.528  0.227
+precue:blocktype  1 0.00036 0.000362   0.112  0.741
+session:blocktype  2 0.00775 0.003875   1.369  0.264
+precue:difficulty  1 0.00003 0.000026   0.012  0.915
+session:difficulty  2 0.00257 0.001284   0.894  0.415
+blocktype:difficulty  1 0.00390 0.003896   1.722  0.201
+precue:session:blocktype  2 0.00051 0.0002553   0.162  0.851
+precue:session:difficulty  2 0.00188 0.0009389   0.508  0.605
+precue:blocktype:difficulty  1 0.00017 0.0001747   0.126  0.726
+session:blocktype:difficulty  2 0.0053 0.002652   1.027  0.365
+precue:session:blocktype:difficulty  2 0.00135 0.000677   0.611  0.547
+
+v
+
+          Df Sum Sq Mean Sq F value Pr(>F)
+precue     1 0.00458 0.004581   1.868  0.184
+session    2 0.4026 0.20131   6.829 0.00239 **
+blocktype  1 0.00855 0.008553   1.844  0.187
+difficulty  1 0.28460 0.28460   97.69 4.05e-10 ***
+precue:session  2 0.00592 0.002962   0.876  0.423
+precue:blocktype  1 0.00066 0.000660   0.178  0.676
+session:blocktype  2 0.03204 0.016021   4.632 0.0143 *
+precue:difficulty  1 0.00032 0.0003208   0.227  0.638
+session:difficulty  2 0.00005 0.0000245   0.009  0.991
+blocktype:difficulty  1 0.00077 0.0007746   0.485  0.493
+precue:session:blocktype  2 0.00037 0.000187   0.049  0.952
+precue:session:difficulty  2 0.00132 0.0006622   0.386  0.681
+precue:blocktype:difficulty  1 0.00222 0.002223   0.989   0.33
+session:blocktype:difficulty  2 0.00578 0.002892   1.182  0.315
+precue:session:blocktype:difficulty  2 0.00261 0.001305   0.616  0.544
+
+ter
+
+          Df Sum Sq Mean Sq F value Pr(>F)
+precue     1 0.00077 0.000766   0.101  0.754
+session    2 0.1204 0.06022   1.954  0.152
+blocktype  1 0.0018 0.001802   0.257  0.617
+difficulty  1 0.00146 0.001464   0.371  0.548
+precue:session  2 0.00395 0.001977   0.333  0.718
+precue:blocktype  1 0.00379 0.003789   0.513  0.481
+session:blocktype  2 0.0568 0.028402   3.625 0.0339 *
+precue:difficulty  1 0.00032 0.000317   0.058  0.811
+session:difficulty  2 0.01187 0.005936   1.285  0.286
+blocktype:difficulty  1 0.00131 0.001308   0.265  0.611
+precue:session:blocktype  2 0.0039 0.001972   0.284  0.754
+precue:session:difficulty  2 0.01249 0.006247   1.533  0.226
+precue:blocktype:difficulty  1 0.00211 0.002109   0.625  0.437
+session:blocktype:difficulty  2 0.0127 0.006374    0.98  0.382
+precue:session:blocktype:difficulty  2 0.00344 0.001720   0.399  0.673
+
+-----
+
+rep meas anova for behav data (exp2)
+
+RT
+
+precue     1 0.0271 0.02711   0.794  0.382
+session    2  12.17   6.083   12.41 4.21e-05 ***
+blocktype  1 0.0153 0.01526   0.373  0.547        (SIG in lmer)
+coh        1  1.317  1.3167   20.93 0.000112 ***
+precue:session  2  0.044 0.02200   0.663   0.52   (NS/SIG in lmer)
+precue:blocktype  1 0.1262 0.12621    3.49 0.0735 . (SIG in lmer)
+session:blocktype  2  0.371 0.18550   3.294 0.0453 *
+precue:coh  1 0.0001 0.000136   0.005  0.946 (SIG in lmer)
+session:coh  2 0.2163 0.10816   2.669 0.0792 . (SIG in lmer)
+blocktype:coh  1 0.1299 0.12994   3.379 0.0779 . (SIG in lmer)
+precue:session:blocktype  2 0.0796 0.03979   1.035  0.363 (SIG/NS in lmer)
+precue:session:coh  2 0.0286 0.01428    0.62  0.542 (NS/SIG in lmer)
+precue:blocktype:coh  1 0.0060 0.00596   0.168  0.685 
+session:blocktype:coh  2 0.0373 0.01866   0.611  0.547 (NS/SIG in lmer)
+precue:session:blocktype:coh  2 0.0361 0.01804   0.699  0.502 (NS/SIG in lmer)
+
+ACC
+
+precue     1 0.00240 0.002401   1.231  0.278 (SIG in lmer)
+session    2 0.0311 0.01554   0.828  0.443
+blocktype  1 0.00016 0.0001572   0.077  0.783
+coh        1 0.11901 0.11901   89.24 9.99e-10 ***
+precue:session  2 0.00198 0.0009879   0.445  0.643 (NS/SIG in lmer)
+precue:blocktype  1 0.00003 0.0000328   0.013  0.912 (SIG in lmer)
+session:blocktype  2 0.01156 0.005780   3.217 0.0485 * (NS/SIG in lmer)
+precue:coh  1 0.000264 0.0002637   0.227  0.638 (SIG in lmer)
+session:coh  2 0.00314 0.001571   1.072   0.35
+blocktype:coh  1 0.00005 0.0000511   0.039  0.845
+precue:session:blocktype  2 0.00845 0.004224   1.672  0.198 (NS/SIG in lmer)
+precue:session:coh  2 0.00107 0.0005333   0.421  0.659
+precue:blocktype:coh  1 0.00656 0.006560   6.159 0.0202 *
+session:blocktype:coh  2 0.00014 0.0000692   0.039  0.962
+precue:session:blocktype:coh  2 0.00131 0.0006552    0.38  0.686
+
+normal->log
+lmer->anova
